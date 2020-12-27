@@ -17,18 +17,6 @@ http.createServer(function (req, res) {
         var command1 = Buffer.from('command')
         var command2 = Buffer.from(djiActionJson.action)
 
-        //sending multiple msg
-        // client.send(['command',dtgrCommand],8889,'localhost',function(error){
-        // var commands = [command1, command2]
-        // client.send(commands,8889,'192.168.10.1',function(error){
-        // // client.send(commands,8889,'localhost',function(error){
-        //   if(error){
-        //     client.close();
-        //   } else{
-        //     console.log('client sent message ' + djiActionJson.action)
-        //   }
-        // });
-
         client.send(command1, 8889,'192.168.10.1',function(error){
           // client.send(commands,8889,'localhost',function(error){
             if(error){
@@ -114,27 +102,3 @@ client.on('message',function(msg,info){
   console.log('Data received from server : ' + msg.toString());
   console.log('Received %d bytes from %s:%d\n',msg.length, info.address, info.port);
 });
-
-//sending msg
-// client.send(data,2222,'localhost',function(error){
-//   if(error){
-//     client.close();
-//   }else{
-//     console.log('Data sent !!!');
-//   }
-// });
-
-// var command1 = Buffer.from('command')
-// var command2 = Buffer.from('takeoff')
-
-// //sending multiple msg
-// // client.send(['command',dtgrCommand],8889,'localhost',function(error){
-// var commands = [command1, command2]
-// // client.send(commands,8889,'192.168.10.1',function(error){
-//   client.send(commands,8889,'localhost',function(error){
-//   if(error){
-//     client.close();
-//   } else{
-//     console.log('client sent message')
-//   }
-// });
